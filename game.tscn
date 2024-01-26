@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c51tsey30ft4f"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_dfwjm"]
+[ext_resource type="Texture2D" uid="uid://ba1yotxlsc601" path="res://Blue.png" id="1_jpaqi"]
+
+[node name="game" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_dfwjm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1152.0
+offset_bottom = 647.0
+texture = ExtResource("1_jpaqi")
+stretch_mode = 1

@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=3 uid="uid://dodore2307oa2"]
+
+[ext_resource type="Script" path="res://options_menu.gd" id="1_76dpr"]
+[ext_resource type="Texture2D" uid="uid://7hkxstkomhx2" path="res://Back.png" id="1_iokxq"]
+[ext_resource type="Script" path="res://TextureButton.gd" id="2_26aar"]
+[ext_resource type="Texture2D" uid="uid://b7lvln4gxa3bh" path="res://back_pressed.png" id="2_niaih"]
+[ext_resource type="Script" path="res://Master.gd" id="2_svvwy"]
+[ext_resource type="Texture2D" uid="uid://flpqeack6pqe" path="res://Back_hover.png" id="3_4jlpv"]
+[ext_resource type="Texture2D" uid="uid://dibdg0m0yjent" path="res://Volume.png" id="5_xic8u"]
+[ext_resource type="Script" path="res://Control.gd" id="6_gl4o3"]
+
+[node name="Options_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_76dpr")
+
+[node name="Sliders" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 705.0
+offset_top = -91.0
+offset_right = 915.0
+offset_bottom = 348.0
+scale = Vector2(2, 2)
+size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 7
+alignment = 1
+
+[node name="Master" type="HSlider" parent="Sliders"]
+layout_mode = 2
+script = ExtResource("2_svvwy")
+
+[node name="Music" type="HSlider" parent="Sliders"]
+layout_mode = 2
+
+[node name="Sound Effects" type="HSlider" parent="Sliders"]
+layout_mode = 2
+
+[node name="Labels" type="VBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 461.0
+offset_top = -130.0
+offset_right = 582.0
+offset_bottom = 341.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(2, 2)
+alignment = 1
+
+[node name="Master" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 2
+
+[node name="Music" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 2
+
+[node name="SFX" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Sound Effects"
+horizontal_alignment = 2
+
+[node name="back" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 25.0
+offset_top = 19.0
+offset_right = 107.0
+offset_bottom = 101.0
+texture_normal = ExtResource("1_iokxq")
+texture_pressed = ExtResource("2_niaih")
+texture_hover = ExtResource("3_4jlpv")
+stretch_mode = 0
+script = ExtResource("2_26aar")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_gl4o3")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+offset_left = 140.0
+offset_top = 260.0
+offset_right = 248.0
+offset_bottom = 443.0
+scale = Vector2(2, 2)
+
+[node name="Fullscreen" type="CheckBox" parent="Control/VBoxContainer2"]
+layout_mode = 2
+
+[node name="V-Sync" type="CheckBox" parent="Control/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 191.0
+offset_top = 241.0
+offset_right = 274.0
+offset_bottom = 350.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="Fullscreen" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="V-Sync" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "V-Sync"
+
+[node name="Volume" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(875.375, 206.5)
+scale = Vector2(5.58334, 5.13636)
+texture = ExtResource("5_xic8u")
+
+[connection signal="pressed" from="back" to="back" method="_on_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer2/Fullscreen" to="." method="_on_check_box_2_pressed"]
+[connection signal="toggled" from="Control/VBoxContainer2/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="Control/VBoxContainer2/V-Sync" to="." method="_on_v_sync_toggled"]
