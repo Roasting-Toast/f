@@ -8,5 +8,3 @@ func _process(delta):
 func toggle():
 	visible = !visible
 	get_tree().paused = visible
-
-

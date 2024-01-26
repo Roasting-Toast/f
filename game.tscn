@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c51tsey30ft4f"]
+[gd_scene load_steps=4 format=3 uid="uid://c51tsey30ft4f"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_dfwjm"]
 [ext_resource type="Texture2D" uid="uid://ba1yotxlsc601" path="res://Blue.png" id="1_jpaqi"]
+[ext_resource type="Script" path="res://Label.gd" id="3_ot2y7"]
 
 [node name="game" type="Node2D"]
 process_mode = 3
@@ -13,3 +14,10 @@ offset_right = 1152.0
 offset_bottom = 647.0
 texture = ExtResource("1_jpaqi")
 stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 19.0
+offset_right = 74.0
+offset_bottom = 57.0
+script = ExtResource("3_ot2y7")
